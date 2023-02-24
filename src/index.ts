@@ -11,6 +11,9 @@ app.use(express.raw({ type: "application/vnd.custom-type" }));
 app.use(express.text({ type: "text/html" }));
 
 app.get("/", async (req, res) => {
+  console.log(
+    "this is server sided log data that client cannot see. but if client really want to know whats going on server console then lets do this"
+  );
   res.json({ message: "Hello world" });
 });
 
