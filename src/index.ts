@@ -1,23 +1,12 @@
-import "./lib/db";
-
-import countryRoutes from "./routes/country";
 import express from "express";
 
 const app = express();
 const port = process.env.PORT || 3333;
 
-app.use(express.json());
-app.use(express.raw({ type: "application/vnd.custom-type" }));
-app.use(express.text({ type: "text/html" }));
-
 app.get("/", async (req, res) => {
-  console.log(
-    "this is server sided log data that client cannot see. but if client really want to know whats going on server console then lets do this"
-  );
+  console.log("Server seded logs triggered");
   res.json({ message: "Hello world" });
 });
-
-app.use("/countries", countryRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
